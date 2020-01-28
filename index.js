@@ -7,7 +7,10 @@ http.createServer(function (request, response) {
     // Content Type: text/plain
     response.writeHead(200, {'Content-Type': 'text/plain'});
     let url = request.url
-    if(url.startsWith("/stocks")) response.end(stocksClass.);
+    let array =new Array()
+    array.push(new stocksClass("", "", "", ""))
+    let data = new Buffer(array)
+    if(url.startsWith("/stocks")) response.end(data.toJSON)
     
     // Send the response body as "Hello World"
  }).listen(8081);
