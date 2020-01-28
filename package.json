@@ -1,0 +1,11 @@
+{
+  "name": "sf-server",
+  "version": "1.0.0",
+  "description": "the server for solar flare",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "fulton browne",
+  "license": "GPL-3.0-or-later"
+}
