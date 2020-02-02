@@ -10,13 +10,7 @@ http.createServer(function (request, response) {
     let array =new Array()
     array.push(new stocksClass("hrfdh", "", "", ""))
     let data = new Buffer(array)
-    if(url.startsWith("/stocks")) response.end(data.toJSON.toString
-        
-        
-        
-        
-        
-        )
+    if(url.startsWith("/stocks")) response.end(data.toJSON.toString)
     
     // Send the response body as "Hello World"
  }).listen(8081);
