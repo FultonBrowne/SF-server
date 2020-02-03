@@ -1,4 +1,7 @@
 module.exports = 
 function getStocks(){
-    return "hi"
+    let stocksClass = require("../models/stocks")
+    let array = new Array(new stocksClass(" hello"))
+    array.push()
+    return array.toString
 }
