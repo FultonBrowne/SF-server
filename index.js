@@ -8,7 +8,8 @@ http.createServer(function (request, response) {
     // Content Type: text/plain
     response.writeHead(200, {'Content-Type': 'text/plain'});
     let url = request.url
-    if(url.startsWith("/stocks")) response.end(getStocks())
+    if(url.startsWith("/stocks")) response.end(getStocks()
+    )
     
     // Send the response body as "Hello World"
  }).listen(8081);
