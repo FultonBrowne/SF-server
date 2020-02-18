@@ -2,17 +2,7 @@
 var http = require("http");
 var getStocks = require("./api/getStocks")
 var stocksClass = require("./models/stocks")
-http.createServer(function (request, response) {
-    // Send the HTTP header 
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    let url = request.url
-    if(url.startsWith("/stocks")) response.end(getStocks()
-    )
-    
-    // Send the response body as "Hello World"
- }).listen(8081);
+new getStocks()
  
 
  // Console will print the message
