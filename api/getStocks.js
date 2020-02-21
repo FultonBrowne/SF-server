@@ -6,9 +6,21 @@ function getStocks(){
     // GraphQL schema
     var schema = buildSchema(`
     type Query {
-    stocksym(id:Int): Stock
+    stocksym(sym:String): Stock
     },
-    
+    type Stock {
+        id: Int
+        name: String
+        price: Int
+        priceHistorHourly: [Int]
+        priceHistorDaily: [Int]
+        priceHistorWeekly: [Int]
+        priceHistorMonthly: [Int]
+
+
+
+
+    }
 
 
     `);// Root resolver
