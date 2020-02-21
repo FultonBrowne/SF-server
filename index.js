@@ -1,8 +1,13 @@
 
 var http = require("http");
+var express = require('express');
+
 var getStocks = require("./api/getStocks")
-new getStocks()
+var app = express();
+new getStocks(app)
+
  
 
  // Console will print the message
- console.log('Server running at http://127.0.0.1:8081/');
+ app.listen(4000, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
+
