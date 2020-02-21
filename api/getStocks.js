@@ -9,36 +9,33 @@ function getStocks(){
     stocksym(sym:String): Stock
     },
     type Stock {
-        id: Int
         name: String
         price: Int
-        priceHistorHourly: [Int]
-        priceHistorDaily: [Int]
-        priceHistorWeekly: [Int]
-        priceHistorMonthly: [Int]
-
-
-
-
+        priceHistoryHourly: [Int]
+        priceHistoryDaily: [Int]
+        priceHistoryWeekly: [Int]
+        priceHistoryMonthly: [Int]
     }
 
-
     `);// Root resolver
+    
+    var data = {
+        name : "test",
+        price : 20,
+        priceHistoryDaily : [20, 20, 20],
+        priceHistoryHourly : [10, 12, 20],
+        priceHistoryWeekly: [30, 12, 80],
+        priceHistoryMonthly:[1000, 90, 34]
+    }
     var root = {
-    stocksym: () => 'Hello World!'
-    };
+        Stock: () => data
+        };
     var app = express();
 app.use('/graphql', express_graphql({
     schema: schema,
     rootValue: root,
     graphiql: true
 }));
-
-
-
-
-
-
 app.listen(4000, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
 
 }
