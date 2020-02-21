@@ -1,7 +1,6 @@
 
 var http = require("http");
 var getStocks = require("./api/getStocks")
-var stocksClass = require("./models/stocks")
 new getStocks()
  
 

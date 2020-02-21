@@ -3,12 +3,14 @@ function getStocks(){
     var express = require('express');
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
-    let stocksClass = require("../models/stocks")
     // GraphQL schema
     var schema = buildSchema(`
     type Query {
-    stocksym: String
-    }
+    stocksym(id:Int): Stock
+    },
+    
+
+
     `);// Root resolver
     var root = {
     stocksym: () => 'Hello World!'
@@ -19,6 +21,12 @@ app.use('/graphql', express_graphql({
     rootValue: root,
     graphiql: true
 }));
+
+
+
+
+
+
 app.listen(4000, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
 
 }
