@@ -1,8 +1,7 @@
 module.exports =
-class StocksList{
-    constructor(){
-        StocksList.main = [
-            "MSFT"
-        ]
-    }
+function data(){
+    const listOfStocks= [
+        "msft"
+    ];
 }
+
