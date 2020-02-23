@@ -1,6 +1,4 @@
 module.exports =
-class StockCache{
-    constructor (){
-      StockCache.main
-    }
+    function getStocks() {
+      
 }
