@@ -3,5 +3,6 @@ function data(){
     const listOfStocks= [
         "msft"
     ];
+    return listOfStocks
 }
 
