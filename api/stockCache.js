@@ -1,10 +1,11 @@
+const listOfStocks= [
+  "msft"
+];
 module.exports =
     function getStocks() {
-      var stocksStringClass = require("../constants/stocksList")
       var map = new Map();
-      var list = new stocksStringClass()
-      list.array.forEach(element => {
-        print(element)
-      });
+      listOfStocks.forEach(element => {
+        map.set(element, )      
+});
       
 }

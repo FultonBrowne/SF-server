@@ -1,8 +1,9 @@
 module.exports = 
 function getStocks(app){
+    let stocksCache= require("./stockCache")
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
-    // GraphQL schema
+    new stocksCache()
     // GraphQL schema
 var schema = buildSchema(`
 type Query {
