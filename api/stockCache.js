@@ -3,6 +3,8 @@ module.exports =
       var stocksStringClass = require("../constants/stocksList")
       var map = new Map();
       var list = new stocksStringClass()
-      
+      list.array.forEach(element => {
+        print(element)
+      });
       
 }
