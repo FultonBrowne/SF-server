@@ -6,20 +6,17 @@ module.exports =
 
       var map = new Map();
       listOfStocks.forEach(element => {
-        getURL("https://google.com/index.html")
+        getBasicData(element)
       });
 }
-
-
-      
 function getURL(url){
   var toReturn
-  var http = require('http');
+  var http = require('https');
 
   var options = {
     url : url
   };
-  
+  http.get(url)
   var req = http.get(options, function(res) {
     console.log('STATUS: ' + res.statusCode);
     console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -33,7 +30,6 @@ function getURL(url){
       var body = Buffer.concat(bodyChunks);
       console.log('BODY: ' + body);
       toReturn = body
-      // ...and/or process the entire body here.
     })
   });
   
@@ -41,4 +37,16 @@ function getURL(url){
     console.log('ERROR: ' + e.message);
   });
   return toReturn
+}
+function getBasicData(sym){
+  let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo"
+  let data = getURL(url)
+  console.log(data)
+  let obj = JSON.parse(data)
+
+console.log(obj.count);
+// expected output: 42
+
+console.log(obj.result);
+// expected output: true
 }
