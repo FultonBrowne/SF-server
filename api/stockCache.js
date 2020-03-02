@@ -22,7 +22,7 @@ function getURL(url, fun){
   
 }
 function getBasicData(sym){
-  let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=MSFT&apikey=demo"
+  let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ sym+"&apikey=OEDIUG71L5DJ2JHS"
   let fun = function (error, response){
     console.log(response.body)
   }
