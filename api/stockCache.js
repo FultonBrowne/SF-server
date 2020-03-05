@@ -2,12 +2,16 @@ const listOfStocks= [
   "msft"
 ];
 module.exports =
-    function getStocks() {
-
-      var map = new Map();
-      listOfStocks.forEach(element => {
-        getBasicData(element)
-      });
+class cache{
+  constructor(){
+    getStocks()
+  }
+}
+function getStocks() {
+  var map = new Map();
+  listOfStocks.forEach(element => {
+    getBasicData(element)
+  });
 }
 function getURL(url, fun){
   var request = require('request');
@@ -25,7 +29,8 @@ function getBasicData(sym){
   let fun = function (error, response){
     console.log(response.body)
     let json = JSON.parse(response.body)["Global Quote"]
-    console.log(json)
+    let price = json["05. price"]
+    console.log(price)
   }
   getURL(url, fun)
   console.log()
