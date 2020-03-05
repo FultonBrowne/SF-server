@@ -10,7 +10,6 @@ module.exports =
       });
 }
 function getURL(url, fun){
-  let toReturn = ""
   var request = require('request');
   var options = {
     'method': 'GET',
@@ -25,6 +24,9 @@ function getBasicData(sym){
   let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ sym+"&apikey=OEDIUG71L5DJ2JHS"
   let fun = function (error, response){
     console.log(response.body)
+    let json = JSON.parse(response.body)
+    
+    console.log(json)
   }
   getURL(url, fun)
   console.log()
