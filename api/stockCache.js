@@ -1,10 +1,14 @@
 const listOfStocks= [
   "msft"
 ];
+var price = new Map()
+
 module.exports =
 class cache{
   constructor(){
     getStocks()
+    console.log(this.price)
+    
   }
 }
 function getStocks() {
@@ -29,7 +33,9 @@ function getBasicData(sym){
   let fun = function (error, response){
     console.log(response.body)
     let json = JSON.parse(response.body)["Global Quote"]
-    let price = json["05. price"]
+    let priceMain = json["05. price"]
+    price.set(sym,priceMain)
+    console.log(priceMain)
     console.log(price)
   }
   getURL(url, fun)
