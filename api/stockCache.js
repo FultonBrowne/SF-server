@@ -8,7 +8,9 @@ class cache{
   constructor(){
     getStocks()
     console.log(this.price)
-    
+  }
+  static getPrice() {
+    return this.price
   }
 }
 function getStocks() {
