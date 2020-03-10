@@ -1,7 +1,7 @@
 const listOfStocks= [
   "msft"
 ];
-var price = new Map()
+let price = new Map()
 
 module.exports =
 class cache{
@@ -9,8 +9,8 @@ class cache{
     getStocks()
     console.log(this.price)
   }
-  static getPrice() {
-    return this.price
+  static getPrice(key) {
+    return price.get(key)
   }
 }
 function getStocks() {

@@ -3,7 +3,8 @@ function getStocks(app){
     let stocksCache= require("./stockCache")
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
-    new stocksCache()
+    var price = stocksCache.getPrice()
+    
     // GraphQL schema
     var schema = buildSchema(`
     type Query {
@@ -22,7 +23,7 @@ function getStocks(app){
     {
         id: 1,
         sym: 'The Complete Node.js Developer Course',
-        price: 0,
+        price:  stocksCache.getPrice("MSFT"),
         priceToday: 0,
         priceYesterday: 0,
         url: 'https://codingthesmartway.com/courses/nodejs/'
