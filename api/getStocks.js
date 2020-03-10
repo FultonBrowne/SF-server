@@ -3,12 +3,13 @@ function getStocks(app){
     let stocksCache= require("./stockCache")
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
-    var price = stocksCache.getPrice()
+    let price= 0 
+   
     
     // GraphQL schema
     var schema = buildSchema(`
     type Query {
-        course(id: Int!): Course
+        course(id: String!): Course
         courses(topic: String): [Course]
     },
     type Course {
@@ -21,9 +22,9 @@ function getStocks(app){
     }
     `);var coursesData = [
     {
-        id: 1,
+        id: "MSFT",
         sym: 'The Complete Node.js Developer Course',
-        price:  stocksCache.getPrice("MSFT"),
+        price:  price,
         priceToday: 0,
         priceYesterday: 0,
         url: 'https://codingthesmartway.com/courses/nodejs/'
@@ -32,6 +33,7 @@ function getStocks(app){
     var getCourse = function(args) { 
     var id = args.id;
     return coursesData.filter(course => {
+        price = stocksCache.price.get("msft")
         return course.id == id;
     })[0];
     }

@@ -1,46 +1,47 @@
 const listOfStocks= [
   "msft"
 ];
-let price = new Map()
+
 
 module.exports =
 class cache{
+static price = new Map()
   constructor(){
-    getStocks()
-    console.log(this.price)
+    cache.getStocks()
+    console.log(cache.price)
   }
   static getPrice(key) {
-    return price.get(key)
+    return cache.price.get(key)
   }
-}
-function getStocks() {
-  var map = new Map();
-  listOfStocks.forEach(element => {
-    getBasicData(element)
-  });
-}
-function getURL(url, fun){
-  var request = require('request');
-  var options = {
-    'method': 'GET',
-    'url': url,
-    'headers': {
+   static getStocks() {
+    listOfStocks.forEach(element => {
+      cache.getBasicData(element)
+    });
+  }
+  static getURL(url, fun){
+    var request = require('request');
+    var options = {
+      'method': 'GET',
+      'url': url,
+      'headers': {
+      }
+    };
+    request(options, fun);
+    
+  }
+  static getBasicData(sym){
+    let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ sym+"&apikey=OEDIUG71L5DJ2JHS"
+    let fun = function (error, response){
+      console.log(response.body)
+      let json = JSON.parse(response.body)["Global Quote"]
+      let priceMain = json["05. price"]
+      cache.price.set(sym,priceMain)
+      console.log(priceMain)
+      console.log(this.price)
     }
-  };
-  request(options, fun);
+    cache.getURL(url, fun)
+    console.log()
   
-}
-function getBasicData(sym){
-  let url = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol="+ sym+"&apikey=OEDIUG71L5DJ2JHS"
-  let fun = function (error, response){
-    console.log(response.body)
-    let json = JSON.parse(response.body)["Global Quote"]
-    let priceMain = json["05. price"]
-    price.set(sym,priceMain)
-    console.log(priceMain)
-    console.log(price)
   }
-  getURL(url, fun)
-  console.log()
-
 }
+
