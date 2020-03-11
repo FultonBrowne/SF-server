@@ -24,7 +24,7 @@ function getStocks(app){
     {
         id: "MSFT",
         sym: 'The Complete Node.js Developer Course',
-        price:  price,
+        price:  stocksCache.price.size,
         priceToday: 0,
         priceYesterday: 0,
         url: 'https://codingthesmartway.com/courses/nodejs/'
@@ -34,17 +34,11 @@ function getStocks(app){
     var id = args.id;
     return coursesData.filter(course => {
         price = stocksCache.price.get("msft")
+        console.log(price)
         return course.id == id;
     })[0];
     }
-    var getStocks = function(args) {
-    if (args.topic) {
-        var topic = args.topic;
-        return coursesData.filter(course => course.topic === topic);
-    } else {
-        return coursesData;
-    }
-    }
+   
     var root = {
     course: getCourse,
     courses: getStocks
