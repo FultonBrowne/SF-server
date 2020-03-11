@@ -11,7 +11,7 @@ static price = new Map()
     console.log(cache.price)
   }
   static getPrice(key) {
-    return cache.price.get(key)
+   return cache.price.get(key)
   }
    static getStocks() {
     listOfStocks.forEach(element => {

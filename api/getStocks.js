@@ -1,5 +1,6 @@
 module.exports = 
 function getStocks(app){
+    let asyn = require("async")
     let stocksCache= require("./stockCache")
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
@@ -24,7 +25,7 @@ function getStocks(app){
     {
         id: "MSFT",
         sym: 'The Complete Node.js Developer Course',
-        price:  stocksCache.price.size,
+        price:  stocksCache.price.get("msft"),
         priceToday: 0,
         priceYesterday: 0,
         url: 'https://codingthesmartway.com/courses/nodejs/'
