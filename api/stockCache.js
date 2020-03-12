@@ -7,8 +7,12 @@ module.exports =
 class cache{
 static price = new Map()
   constructor(){
+    var time = function(){
+      cache.getStocks()
+    }
     cache.getStocks()
     console.log(cache.price)
+    setInterval(time, 60000)
   }
   static getPrice(key) {
    return cache.price.get(key)

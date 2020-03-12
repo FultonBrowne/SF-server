@@ -30,7 +30,6 @@ function getStocks(app){
                     price:stocksCache.getPrice(args["id"]),
                     priceToday: 0,
                     priceYesterday: 0,
-                    url: 'https://codingthesmartway.com/courses/nodejs/'
                 }
     }
    
