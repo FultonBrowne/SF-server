@@ -5,39 +5,33 @@ function getStocks(app){
     var express_graphql = require('express-graphql');
     var { buildSchema } = require('graphql');
     let price= 0 
+
    
     
     // GraphQL schema
     var schema = buildSchema(`
     type Query {
         course(id: String!): Course
-        courses(topic: String): [Course]
     },
     type Course {
         id: Int
         sym: String
-        price: Int
-        priceToday: Int
-        priceYesterday: Int
-        url: String
+        price: Float
+        priceToday: Float
+        priceYesterday: Float
     }
-    `);var coursesData = [
-    {
-        id: "MSFT",
-        sym: 'The Complete Node.js Developer Course',
-        price:  stocksCache.price.get("msft"),
-        priceToday: 0,
-        priceYesterday: 0,
-        url: 'https://codingthesmartway.com/courses/nodejs/'
-    }
-    ]
+    `);
     var getCourse = function(args) { 
-    var id = args.id;
-    return coursesData.filter(course => {
-        price = stocksCache.price.get("msft")
-        console.log(price)
-        return course.id == id;
-    })[0];
+        console.log(args)
+             var id = args.id;
+            return {
+                    id: "MSFT",
+                    sym: 'MSFT',
+                    price:stocksCache.getPrice(args["id"]),
+                    priceToday: 0,
+                    priceYesterday: 0,
+                    url: 'https://codingthesmartway.com/courses/nodejs/'
+                }
     }
    
     var root = {

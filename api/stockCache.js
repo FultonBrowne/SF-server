@@ -37,7 +37,7 @@ static price = new Map()
       let priceMain = json["05. price"]
       cache.price.set(sym,priceMain)
       console.log(priceMain)
-      console.log(this.price)
+      console.log(cache.price)
     }
     cache.getURL(url, fun)
     console.log()
