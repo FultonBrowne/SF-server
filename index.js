@@ -7,5 +7,5 @@ var app = express();
 new stocksCache()
 let cache = new getStocks(app)
  // Console will print the message
- app.listen(4000, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
+ app.listen(8080, () => console.log('Express GraphQL Server Now Running On localhost:4000/graphql'));
 
