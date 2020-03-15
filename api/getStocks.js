@@ -23,10 +23,9 @@ function getStocks(app){
     `);
     var getCourse = function(args) { 
         console.log(args)
-             var id = args.id;
             return {
-                    id: "MSFT",
-                    sym: 'MSFT',
+                    id: sym,
+                    sym: sym,
                     price:stocksCache.getPrice(args["id"]),
                     priceToday: 0,
                     priceYesterday: 0,
